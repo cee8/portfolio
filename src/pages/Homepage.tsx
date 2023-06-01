@@ -1,5 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import Avatar from '@material-ui/core/Avatar'
 
 const useStyles = makeStyles(
   theme => ({
@@ -17,9 +18,13 @@ const useStyles = makeStyles(
       flexDirection: 'row',
     },
 
-    avatar: {},
+    avatarContainer: {},
 
-    title: {},
+    chrisAvatar: {},
+
+    title: {
+      fontSize: theme.typography.h2.fontSize,
+    },
 
     divider: {},
 
@@ -49,7 +54,9 @@ export const Homepage = () => {
   return (
     <div className={classes.root}>
       <div className={classes.header}>
-        <div className={classes.avatar}>AVATAR</div>
+        <div className={classes.avatarContainer}>
+          <Avatar className={classes.chrisAvatar}>N</Avatar>
+        </div>
         <div className={classes.title}>Chris' Portfolio</div>
       </div>
       <div className={classes.divider}>__________</div>
