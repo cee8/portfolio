@@ -79,11 +79,18 @@ const useStyles = makeStyles(
 
     clients: {},
 
-    FinishedProjects: {},
+    finishedProjects: {},
 
     contact: {},
 
     divider: {},
+
+    chrisPhoto: {},
+
+    footer: {},
+    projStatA: {},
+    projStatB: {},
+    projStatC: {},
 
     content: {
       gridArea: 'rightpan',
@@ -157,45 +164,21 @@ export const Homepage = () => {
         </Button>
         <Button className={classes.projects}>Projects</Button>
         <h2 className={classes.clients}>clients</h2>
-        <h2 className={classes.FinishedProjects}>FinishedProjects</h2>
+        <h2 className={classes.finishedProjects}>FinishedProjects</h2>
         <h2 className={classes.contact}>contact</h2>
       </div>
-      {/* <hr /> */}
-      {/* <Divider /> */}
+      <div className={classes.footer}>
+        <div className={classes.projStatA}>A</div>
+        <div className={classes.projStatB}>
+          B<div className={classes.projStatC}>C</div>
+        </div>
+      </div>
       <div className={classes.content}>
-        <Paper elevation={3} className={classes.project}>
-          <div className={classes.cardContentAbove}>
-            {/* <div className={classes.contentImage}>IMAGE</div> */}
-            <Avatar variant="rounded" className={classes.rounded}>
-              {/* <AssignmentIcon /> */}
-            </Avatar>
-            <div className={classes.contentDescription}>Desc</div>
-          </div>
-          <Divider />
-          <h3>Descriptionnnnnnnnnnnnnnnnn</h3>
-        </Paper>
-        <Paper elevation={3} className={classes.project}>
-          <div className={classes.cardContentAbove}>
-            {/* <div className={classes.contentImage}>IMAGE</div> */}
-            <Avatar variant="rounded" className={classes.rounded}>
-              {/* <AssignmentIcon /> */}
-            </Avatar>
-            <div className={classes.contentDescription}>Desc</div>
-          </div>
-          <Divider />
-          <h3> Descriptionnnnnnnnnnnnnnnnn</h3>
-        </Paper>
-        <Paper elevation={3} className={classes.project}>
-          <div className={classes.cardContentAbove}>
-            {/* <div className={classes.contentImage}>IMAGE</div> */}
-            <Avatar variant="rounded" className={classes.rounded}>
-              {/* <AssignmentIcon /> */}
-            </Avatar>
-            <div className={classes.contentDescription}>Desc</div>
-          </div>
-          <Divider />
-          <h3>Descriptionnnnnnnnnnnnnnnnn</h3>
-        </Paper>
+        <div className={classes.chrisPhoto}>
+        <div class="swiper-zoom-container">
+      <img id="fullwall" src="some link">
+    </div>
+        </div>
       </div>
     </div>
   )
