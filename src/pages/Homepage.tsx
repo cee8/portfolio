@@ -5,6 +5,9 @@ import Paper from '@material-ui/core/Paper'
 import Divider from '@material-ui/core/Divider'
 import Chip from '@material-ui/core/Chip'
 import Button from '@material-ui/core/Button'
+import { useState } from 'react'
+
+import { getFirestore, collection, addDoc } from 'firebase/firestore'
 import { initializeApp } from 'firebase/app'
 
 const useStyles = makeStyles(
@@ -65,6 +68,7 @@ const useStyles = makeStyles(
       paddingInline: '10px',
     },
     chatBox: {},
+
     topIntroLine: {
       display: 'flex',
       justifyContent: 'start',
@@ -84,11 +88,13 @@ const useStyles = makeStyles(
       height: '50px',
       width: '135px',
       fontFamily: 'Trebuchet MS',
-      fontSize: '40px',
+      fontSize: '20px',
       fontWeight: 'bold',
+      alignItems: 'center',
       backgroundColor: 'purple',
       borderColor: 'purple',
       color: 'white',
+      marginLeft: '50px',
     },
     introText: {
       paddingRight: '20px',
@@ -218,6 +224,20 @@ const useStyles = makeStyles(
 )
 
 export const Homepage = () => {
+  const [hireClicked, setHireClicked] = useState(false)
+
+  const handleHireMeClick = async () => {
+    const firestore = getFirestore()
+
+    try {
+      // Add a document to the "hires" collection with a value of 1
+      await addDoc(collection(firestore, 'hires'), { value: 1 })
+      setHireClicked(true)
+    } catch (error) {
+      console.log('Error adding document:', error)
+    }
+  }
+
   const classes = useStyles()
 
   const firebaseConfig = {
@@ -261,9 +281,10 @@ export const Homepage = () => {
         </h3>
         <div className={classes.introBottomComponents}>
           <div className={classes.hireAndProjectsButtons}>
-            <Button className={classes.hireMe} variant="contained">
+            <Button className={classes.hireMe} variant="contained" onClick={handleHireMeClick}>
               Hire me
             </Button>
+            {hireClicked && <p>Hire button clicked! Value of 1 added to Firestore.</p>}
             <Button className={classes.projects}>Projects</Button>
           </div>
           <img
