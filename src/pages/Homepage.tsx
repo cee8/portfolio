@@ -238,11 +238,6 @@ const useStyles = makeStyles(
       justifyContent: 'start',
     },
 
-    /* Footer */
-    footer: {
-      backgroundColor: '#212427',
-    },
-
     /* TEMPORARY PROJECT FLEX ITEMS */
     projStatA: {},
     projStatB: {},
@@ -258,6 +253,7 @@ const useStyles = makeStyles(
       overflow: 'hidden',
     },
 
+    /* PROJECT BUTTON */
     project: {
       height: '80%',
       backgroundColor: 'white',
@@ -265,14 +261,103 @@ const useStyles = makeStyles(
       margin: theme.spacing(3),
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'space-around',
+      justifyContent: 'space-evenly',
     },
+
+    /* IMAGE IN PROJECT BUTTON */
     leafPhoto: {
       gridArea: 'logo',
       width: '100%',
       height: '100%',
       objectFit: 'cover',
       objectPosition: 'center',
+    },
+
+    /* FOOTER */
+    footerBulkContainer: {
+      display: 'flex',
+      color: 'white',
+      backgroundColor: '#212427',
+      justifyContent: 'space-around',
+      fontFamily: 'Trebuchet MS',
+      fontSize: '25px',
+      fontWeight: 'normal',
+      paddingBlock: '50px',
+    },
+
+    /* FOOTER LEFT COLUMN */
+    footerLeftColumn: {
+      display: 'flex',
+      height: 'auto',
+      flexDirection: 'column',
+      justifyContent: 'space-evenly',
+      minHeight: '100%',
+      maxWidth: '200px',
+      textAlign: 'left',
+    },
+
+    /* FOOTER PROJECTS */
+    footerProjects: {
+      display: 'flex',
+      fontSize: '30px',
+    },
+
+    /* FOOTER BUTTON */
+    footerButton: {
+      display: 'flex',
+      whiteSpace: 'nowrap',
+      width: '180px',
+      height: '55px',
+      backgroundColor: 'yellow',
+      fontFamily: 'Trebuchet MS',
+      fontSize: '25px',
+      fontWeight: 'bold',
+    },
+
+    /* FOOTER RIGHT COLUMN */
+    footerRightColumn: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-evenly',
+      minHeight: '100%',
+      minWidth: '300px',
+    },
+
+    /* FOOTER WEBSITE COUNT */
+    footerWebsiteCount: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      borderBottom: 'solid' + ' ' + 'gray',
+      borderBottomWidth: '1px',
+      paddingBottom: '10px',
+    },
+
+    /* FOOTER MOBILE COUNT */
+    footerMobileCount: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      borderBottom: 'solid' + ' ' + 'gray',
+      borderBottomWidth: '1px',
+      paddingBottom: '10px',
+    },
+
+    /* FOOTER BRAND COUNT */
+    footerBrandCount: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      borderBottom: 'solid' + ' ' + 'gray',
+      borderBottomWidth: '1px',
+      paddingBottom: '10px',
+    },
+
+    /* FOOTER NAME */
+    footerName: {
+      display: 'flex',
+    },
+
+    /* FOOTER NUM */
+    footerNum: {
+      display: 'flex',
     },
   }),
   { name: 'Homepage' }
@@ -284,8 +369,8 @@ export const Homepage = () => {
   const handleHireMeClick = async () => {
     const firestore = getFirestore()
 
+    /* TRY STATEMENT FOR FIRESTORE */
     try {
-      // Add a document to the "hires" collection with a value of 1
       await addDoc(collection(firestore, 'hires'), { value: 1 })
       setHireClicked(true)
     } catch (error) {
@@ -361,12 +446,31 @@ export const Homepage = () => {
           </div>
         </div>
       </div>
-      <div className={classes.footer}>
-        <div className={classes.projStatA}>A</div>
-        <div className={classes.projStatB}>
-          B<div className={classes.projStatC}>C</div>
+      {/* <div className={classes.footer}> */}
+      <div className={classes.footerBulkContainer}>
+        <div className={classes.footerLeftColumn}>
+          <div className={classes.footerProjects}>Project Statistics 2022</div>
+          {/* TODO ADD onClick={handleKnowMoreClick} */}
+          <Button className={classes.footerButton} variant="contained">
+            Know More
+          </Button>
+        </div>
+        <div className={classes.footerRightColumn}>
+          <div className={classes.footerWebsiteCount}>
+            <div className={classes.footerName}>Website Design</div>
+            <div className={classes.footerNum}>75</div>
+          </div>
+          <div className={classes.footerMobileCount}>
+            <div className={classes.footerName}>Mobile App Design</div>
+            <div className={classes.footerNum}>64</div>
+          </div>
+          <div className={classes.footerBrandCount}>
+            <div className={classes.footerName}>Brand Identity</div>
+            <div className={classes.footerNum}>38</div>
+          </div>
         </div>
       </div>
+      {/* </div> */}
       <div className={classes.content}>
         <img
           className={classes.leafPhoto}
