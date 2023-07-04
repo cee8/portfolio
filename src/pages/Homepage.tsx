@@ -112,6 +112,7 @@ const useStyles = makeStyles(
     introBox: {
       paddingInline: '15%',
       backgroundColor: 'white',
+      textAlign: 'left',
     },
 
     /* CONTAINS TOP LINE OF INTRO */
@@ -141,18 +142,20 @@ const useStyles = makeStyles(
 
     /* CHIP IN TOP LINE OF INTRO TEXT */
     largeChip: {
-      border: 'solid',
-      borderRadius: '50px',
-      height: '50px',
-      width: '135px',
-      fontFamily: 'Trebuchet MS',
-      fontSize: '20px',
-      fontWeight: 'bold',
+      display: 'flex',
+      justifyContent: 'center',
       alignItems: 'center',
+      height: '50px',
+      width: '200px', // Adjust the width as needed
+      fontSize: '30px',
+      fontWeight: 'bold',
       backgroundColor: 'purple',
       borderColor: 'purple',
       color: 'white',
       marginLeft: '50px',
+      padding: '0 20px', // Adjust the padding as needed
+      paddingBottom: '3px',
+      borderRadius: '25px', // Adjust the border radius to make it oval-shaped
     },
 
     /* CONTAINS BOTTOM LINE OF INTRO */
@@ -236,6 +239,7 @@ const useStyles = makeStyles(
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'start',
+      paddingLeft: '100px',
     },
 
     /* TEMPORARY PROJECT FLEX ITEMS */
