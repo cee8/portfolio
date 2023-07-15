@@ -42,7 +42,7 @@ const useStyles = makeStyles(
     /* BIGGEST TEXT, (USED IN INTRO BOTTOM) */
     largeText: {
       display: 'flex',
-      fontSize: '70px',
+      fontSize: '80px',
       fontWeight: 'bold',
       fontFamily: 'Gill Sans (sans-serif)',
       textAlign: 'left',
@@ -66,12 +66,24 @@ const useStyles = makeStyles(
 
     /* HEADER/NAV BAR */
     header: {
+      display: 'flex',
+      alignItems: 'center',
       gridArea: 'header',
       backgroundColor: 'white',
-      display: 'flex',
       justifyContent: 'space-between',
-      paddingRight: '3rem',
+      gap: '0%',
+      paddingInline: '8.7%',
       flexDirection: 'row',
+    },
+
+    headerUnderline: {
+      //make a line under the header
+      borderBottom: 'solid' + ' ' + 'lightgray',
+      borderBottomWidth: '3px',
+      gridArea: 'header',
+      width: '91.5%',
+      //center the line
+      justifySelf: 'end',
     },
 
     /* CONTAINS AVATAR */
@@ -79,34 +91,43 @@ const useStyles = makeStyles(
 
     /* TITLE USED IN HEADER */
     title: {
-      fontSize: theme.typography.h4.fontSize,
+      display: 'flex',
+      alignItems: 'center',
+      fontFamily: 'Trebuchet MS',
+      fontSize: '38px',
+      fontWeight: 'bold',
     },
 
     /* NAVBAR */
     directory: {
       display: 'flex',
       justifyContent: 'space-evenly',
-      padding: '10px',
+      alignItems: 'center',
+      gap: '20%',
+      fontFamily: 'Trebuchet MS',
+      fontSize: '21px',
+      fontWeight: 'bold',
     },
-    /* NAVBAR PIECE */
-    directoryHome: {
-      paddingInline: '10px',
-    },
-    /* NAVBAR PIECE */
-    directoryWorks: {
-      paddingInline: '10px',
-    },
-    /* NAVBAR PIECES */
-    directoryProjects: {
-      paddingInline: '10px',
-    },
-    /* NAVBAR PIECES */
-    directoryServices: {
-      paddingInline: '10px',
-    },
+    /* NAVBAR Home */
+    directoryHome: {},
+    /* NAVBAR Works */
+    directoryWorks: {},
+    /* NAVBAR About */
+    directoryProjects: {},
+    /* NAVBAR Projects */
+    directoryServices: {},
 
     /* NAVBAR CHATBOX */
-    chatBox: {},
+    chatBox: {
+      display: 'flex',
+      alignItems: 'center',
+      border: 'solid' + ' ' + '3px',
+      height: '50px',
+      padding: '0 3%',
+      fontFamily: 'Trebuchet MS',
+      fontSize: '21px',
+      fontWeight: 'bold',
+    },
 
     /* INTRO TEXT CONTAINER */
     introBox: {
@@ -134,7 +155,7 @@ const useStyles = makeStyles(
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
-      fontSize: '70px',
+      fontSize: '80px',
       fontWeight: 'bold',
       fontFamily: 'Gill Sans (sans-serif)',
       maxHeight: '100px',
@@ -145,7 +166,7 @@ const useStyles = makeStyles(
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      height: '50px',
+      height: '70px',
       width: '200px', // Adjust the width as needed
       fontSize: '30px',
       fontWeight: 'bold',
@@ -153,9 +174,10 @@ const useStyles = makeStyles(
       borderColor: 'purple',
       color: 'white',
       marginLeft: '50px',
-      padding: '0 20px', // Adjust the padding as needed
+      padding: '0 40px', // Adjust the padding as needed
       paddingBottom: '3px',
-      borderRadius: '25px', // Adjust the border radius to make it oval-shaped
+      marginTop: '20px',
+      borderRadius: '40px', // Adjust the border radius to make it oval-shaped
     },
 
     /* CONTAINS BOTTOM LINE OF INTRO */
@@ -189,13 +211,15 @@ const useStyles = makeStyles(
     /* HIRE BUTTON */
     hireMe: {
       gridArea: 'hire',
-      backgroundColor: 'orange',
+      backgroundColor: '#ff4d00',
+      color: 'white',
       width: '150px',
       height: '55px',
       paddingRight: '20px',
       fontFamily: 'Monospace',
-      fontSize: '23px',
+      fontSize: '20px',
       fontWeight: 'bold',
+      borderRadius: '2px',
     },
 
     /* PROJECTS BUTTON */
@@ -207,6 +231,7 @@ const useStyles = makeStyles(
       fontFamily: 'Monospace',
       fontSize: '23px',
       fontWeight: 'bold',
+      borderRadius: '0px',
     },
 
     /* LOGO USED IN CENTER OF SCREEN */
@@ -312,10 +337,11 @@ const useStyles = makeStyles(
       whiteSpace: 'nowrap',
       width: '180px',
       height: '55px',
-      backgroundColor: 'yellow',
+      backgroundColor: '#ffc100',
       fontFamily: 'Trebuchet MS',
-      fontSize: '25px',
+      fontSize: '22px',
       fontWeight: 'bold',
+      borderRadius: '2px',
     },
 
     /* FOOTER RIGHT COLUMN */
@@ -398,18 +424,20 @@ export const Homepage = () => {
   return (
     <div className={classes.root}>
       <div className={classes.header}>
-        <div className={classes.avatarContainer}>
+        {/* <div className={classes.avatarContainer}>
           {/* <Avatar className={classes.chrisAvatar}>CB</Avatar> */}
-        </div>
+
         <div className={classes.title}>Chris' Portfolio</div>
         <div className={classes.directory}>
-          <div className={classes.directoryHome}>directoryHome</div>
-          <div className={classes.directoryWorks}>directoryWorks</div>
-          <div className={classes.directoryProjects}>directoryProjects</div>
-          <div className={classes.directoryServices}>directoryServices</div>
+          <div className={classes.directoryHome}>Home</div>
+          <div className={classes.directoryWorks}>Works</div>
+          <div className={classes.directoryProjects}>Projects</div>
+          <div className={classes.directoryServices}>Services</div>
         </div>
-        <div className={classes.chatBox}>CHAT</div>
+        <div className={classes.chatBox}>Let's chat</div>
       </div>
+      <div className={classes.headerUnderline} />
+
       <div className={classes.introBox}>
         <div className={classes.topIntroLine}>
           <div className={classes.largeTextTop}>
